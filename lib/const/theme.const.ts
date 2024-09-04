@@ -5,28 +5,44 @@ interface ThemeRecord {
 }
 
 export const THEMES = {
-  mono: {
-    id: "mono",
-    name: "Mono",
+  graphite: {
+    id: "graphite",
+    name: "Graphite",
     background: {
       from: "#333333",
       to: "#181818",
     },
   },
-  sunset: {
-    id: "sunset",
-    name: "Sunset",
+  titanium: {
+    id: "titanium",
+    name: "Titanium",
     background: {
-      from: "#FFCF73",
-      to: "#FF7A2F",
+      from: "#f5f5f5",
+      to: "#d1d1d1",
     },
   },
-  sand: {
-    id: "sand",
-    name: "Sand",
+  sunrise: {
+    id: "sunrise",
+    name: "Sunrise",
+    background: {
+      from: "#FFC837",
+      to: "#FF8008",
+    },
+  },
+  sage: {
+    id: "sage",
+    name: "Sage",
     background: {
       from: "#cbcaa5",
       to: "#334d50",
+    },
+  },
+  sea: {
+    id: "sea",
+    name: "Sea",
+    background: {
+      from: "#36D1DC",
+      to: "#5B86E5",
     },
   },
 } as const satisfies Record<string, ThemeRecord>;

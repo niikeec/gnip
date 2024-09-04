@@ -38,7 +38,7 @@ export function SearchForm() {
         control={form.control}
         name="url"
         render={({ field }) => (
-          <FormItem className="relative mx-auto w-full max-w-[310px] space-y-0 md:max-w-[450px]">
+          <FormItem className="relative mx-auto w-full max-w-[350px] space-y-0 md:max-w-[450px]">
             <FormControl>
               <Input
                 {...field}
@@ -49,7 +49,10 @@ export function SearchForm() {
                 )}
               />
             </FormControl>
-            <Button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full">
+            <Button
+              variant="outline"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-secondary/35"
+            >
               Search
             </Button>
           </FormItem>
