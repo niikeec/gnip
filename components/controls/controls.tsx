@@ -9,7 +9,7 @@ import { ControlsTheme } from "./controls-theme";
 
 export function Controls() {
   return (
-    <div className="absolute left-1/2 top-12 flex h-10 -translate-x-1/2 items-center rounded-full border border-primary/15 bg-background px-2 shadow-lg">
+    <div className="absolute left-1/2 top-16 flex h-10 -translate-x-1/2 items-center rounded-full border border-primary/15 bg-background px-2 shadow-lg">
       <div className="flex items-center gap-2">
         <ControlsTheme />
         <ControlsBackground />
