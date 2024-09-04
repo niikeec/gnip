@@ -1,6 +1,6 @@
 "use client";
 
-import { previewStore, usePreviewStore } from "@/lib/store/preview.store";
+import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
 import { Tooltip } from "../ui/tooltip";
 import { ControlsToggle } from "./controls-toggle";
 

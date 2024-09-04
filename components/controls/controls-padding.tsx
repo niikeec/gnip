@@ -1,8 +1,8 @@
 "use client";
 
-import { PADDING_OPTIONS } from "@/lib/const/padding.const";
-import { previewStore, usePreviewStore } from "@/lib/store/preview.store";
-import { cn } from "@/lib/utils";
+import { PADDING_OPTIONS } from "~/lib/const/padding.const";
+import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
+import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
 
 export function ControlsPadding() {
@@ -16,9 +16,9 @@ export function ControlsPadding() {
           variant="ghost"
           size="icon"
           className={cn(
-            "size-6 text-xs relative",
+            "relative size-6 text-xs",
             padding === snapshot.padding
-              ? "text-foreground after:content-[''] after:absolute after:size-1 after:-bottom-[3px] after:left-1/2 after:-translate-x-1/2 after:rounded-full after:bg-primary/20"
+              ? "text-foreground after:absolute after:-bottom-[3px] after:left-1/2 after:size-1 after:-translate-x-1/2 after:rounded-full after:bg-primary/20 after:content-['']"
               : null,
           )}
           onClick={() => (previewStore.padding = padding)}

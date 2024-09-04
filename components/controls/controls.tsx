@@ -9,15 +9,15 @@ import { ControlsTheme } from "./controls-theme";
 
 export function Controls() {
   return (
-    <div className="absolute flex items-center top-12 left-1/2 -translate-x-1/2 rounded-full bg-background border border-primary/15 shadow-lg px-2 h-10">
-      <div className="flex gap-2 items-center">
+    <div className="absolute left-1/2 top-12 flex h-10 -translate-x-1/2 items-center rounded-full border border-primary/15 bg-background px-2 shadow-lg">
+      <div className="flex items-center gap-2">
         <ControlsTheme />
         <ControlsBackground />
         <ControlsDarkMode />
       </div>
-      <Separator orientation="vertical" className="h-5 mx-2" />
+      <Separator orientation="vertical" className="mx-2 h-5" />
       <ControlsPadding />
-      <Separator orientation="vertical" className="h-5 mx-2" />
+      <Separator orientation="vertical" className="mx-2 h-5" />
       <ControlsDownload />
     </div>
   );

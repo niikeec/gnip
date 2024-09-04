@@ -1,12 +1,13 @@
 "use client";
 
-import { EXPORT_SIZES } from "@/lib/const/export-size.const";
-import { download } from "@/lib/download";
-import { toBlob, toPng, toSvg } from "@/lib/image";
-import { previewStore, usePreviewStore } from "@/lib/store/preview.store";
-import { ChevronDown, Download } from "lucide-react";
 import { useParams } from "next/navigation";
+import { ChevronDown, Download } from "lucide-react";
 import { toast } from "sonner";
+
+import { EXPORT_SIZES } from "~/lib/const/export-size.const";
+import { download } from "~/lib/download";
+import { toBlob, toPng, toSvg } from "~/lib/image";
+import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -88,7 +89,7 @@ export function ControlsDownload() {
         <Button
           size="icon"
           variant="ghost"
-          className="shrink-0 size-6"
+          className="size-6 shrink-0"
           onClick={savePng}
         >
           <Download size={16} />

@@ -1,7 +1,8 @@
 "use client";
 
-import { previewStore, usePreviewStore } from "@/lib/store/preview.store";
 import { Moon } from "lucide-react";
+
+import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
 import { Tooltip } from "../ui/tooltip";
 import { ControlsToggle } from "./controls-toggle";
 

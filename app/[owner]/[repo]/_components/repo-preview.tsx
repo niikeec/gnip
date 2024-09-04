@@ -1,9 +1,10 @@
-import { Preview } from "@/components/preview";
-import { contributorSchema } from "@/lib/schema/contributor.schema";
-import { repositorySchema } from "@/lib/schema/repository.schema";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+
+import { Preview } from "~/components/preview";
+import { contributorSchema } from "~/lib/schema/contributor.schema";
+import { repositorySchema } from "~/lib/schema/repository.schema";
+import { cn } from "~/lib/utils";
 import { RepoPreviewContributors } from "./repo-preview-contributors";
 import { RepoPreviewLanguage } from "./repo-preview-language";
 import { RepoPreviewStars } from "./repo-preview-stars";
@@ -17,12 +18,16 @@ export async function RepoPreview({
   owner: string;
   repo: string;
 }) {
-  const repository = await fetch(`${BASE_URL}/${owner}/${repo}`)
+  const repository = await fetch(`${BASE_URL}/${owner}/${repo}`, {
+    next: { revalidate: 600 },
+  })
     .then((res) => res.json())
     .then(repositorySchema.parse)
     .catch(() => notFound());
 
-  const contributors = await fetch(repository.contributors_url)
+  const contributors = await fetch(repository.contributors_url, {
+    next: { revalidate: 1800 },
+  })
     .then((res) => res.json())
     .then(contributorSchema.array().parse)
     .catch(() => []);
@@ -37,7 +42,7 @@ export async function RepoPreview({
             width={128}
             height={128}
             className={cn(
-              "size-6",
+              "size-6 border",
               repository.owner.type === "User" ? "rounded-full" : "rounded-lg",
             )}
           />
@@ -47,7 +52,7 @@ export async function RepoPreview({
 
         <p>{repository.description}</p>
 
-        <div className="flex items-center text-xs gap-2.5">
+        <div className="flex items-center gap-2.5 text-xs">
           <RepoPreviewLanguage language={repository.language} />
           <span className="text-muted-foreground/25">•</span>
           <RepoPreviewStars count={repository.stargazers_count} />

@@ -1,8 +1,8 @@
 "use client";
 
-import { Theme, THEME_OPTIONS } from "@/lib/const/theme.const";
-import { previewStore, usePreviewStore } from "@/lib/store/preview.store";
-import { themeBackground } from "@/lib/utils";
+import { Theme, THEME_OPTIONS } from "~/lib/const/theme.const";
+import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
+import { themeBackground } from "~/lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "../ui/select";
 import { Tooltip } from "../ui/tooltip";
 
@@ -15,7 +15,7 @@ export function ControlsTheme() {
       onValueChange={(theme) => (previewStore.theme = theme as Theme)}
     >
       <Tooltip content="Theme">
-        <SelectTrigger className="border-0 h-auto rounded-full p-0">
+        <SelectTrigger className="h-auto rounded-full border-0 p-0">
           <div className="size-6 rounded-full" style={themeBackground(theme)} />
         </SelectTrigger>
       </Tooltip>
