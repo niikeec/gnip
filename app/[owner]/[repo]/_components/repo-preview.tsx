@@ -47,7 +47,7 @@ export async function RepoPreview({
             )}
           />
 
-          <span>{repository.full_name}</span>
+          <span className="font-medium">{repository.full_name}</span>
         </div>
 
         <p>{repository.description}</p>
