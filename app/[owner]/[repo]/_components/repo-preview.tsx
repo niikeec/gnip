@@ -50,7 +50,7 @@ export async function RepoPreview({
           <span className="font-medium">{repository.full_name}</span>
         </div>
 
-        <p>{repository.description}</p>
+        {repository.description && <p>{repository.description}</p>}
 
         <div className="flex items-center gap-2.5 text-xs">
           <RepoPreviewLanguage language={repository.language} />

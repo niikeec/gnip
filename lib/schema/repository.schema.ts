@@ -8,7 +8,7 @@ export const repositorySchema = z.object({
     avatar_url: z.string(),
     type: z.string(),
   }),
-  description: z.string(),
+  description: z.string().nullable(),
   contributors_url: z.string(),
   stargazers_count: z.number(),
   language: z.string(),
