@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { EXPORT_SIZES } from "~/lib/const/export-size.const";
 import { download } from "~/lib/download";
 import { toBlob, toPng, toSvg } from "~/lib/image";
-import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
+import { useControls } from "~/lib/params/controls.params";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -26,7 +26,7 @@ import { Tooltip } from "../ui/tooltip";
 export function ControlsDownload() {
   const params = useParams();
 
-  const { size } = usePreviewStore();
+  const [{ size }, setControls] = useControls();
 
   function savePng() {
     const node = document.getElementById("preview");
@@ -123,7 +123,7 @@ export function ControlsDownload() {
                   <DropdownMenuRadioItem
                     key={size}
                     value={size.toString()}
-                    onClick={() => (previewStore.size = size)}
+                    onClick={() => setControls({ size })}
                   >
                     {size}x
                   </DropdownMenuRadioItem>

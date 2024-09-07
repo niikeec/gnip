@@ -2,21 +2,19 @@
 
 import { Moon } from "lucide-react";
 
-import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
+import { useControls } from "~/lib/params/controls.params";
 import { Tooltip } from "../ui/tooltip";
 import { ControlsToggle } from "./controls-toggle";
 
 export function ControlsDarkMode() {
-  const { darkMode } = usePreviewStore();
+  const [{ darkMode }, setControls] = useControls();
 
   return (
     <Tooltip content="Toggle Dark Mode">
       <div className="size-6">
         <ControlsToggle
           pressed={darkMode}
-          onPressedChange={(checked) => {
-            previewStore.darkMode = checked;
-          }}
+          onPressedChange={(checked) => setControls({ darkMode: checked })}
         >
           <Moon className="size-4" />
         </ControlsToggle>

@@ -1,20 +1,18 @@
 "use client";
 
-import { previewStore, usePreviewStore } from "~/lib/store/preview.store";
+import { useControls } from "~/lib/params/controls.params";
 import { Tooltip } from "../ui/tooltip";
 import { ControlsToggle } from "./controls-toggle";
 
 export function ControlsBackground() {
-  const { background } = usePreviewStore();
+  const [{ background }, setControls] = useControls();
 
   return (
     <Tooltip content="Toggle Background">
       <div className="size-6">
         <ControlsToggle
           pressed={!background}
-          onPressedChange={(checked) => {
-            previewStore.background = !checked;
-          }}
+          onPressedChange={(checked) => setControls({ background: !checked })}
         >
           <svg
             width="15"
