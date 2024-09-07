@@ -22,8 +22,8 @@ export async function RepoPreview({
     next: { revalidate: 600 },
   })
     .then((res) => res.json())
-    .then(repositorySchema.parse)
-    .catch(() => notFound());
+    .then((data) => (data.message === "Not Found" ? notFound() : data))
+    .then(repositorySchema.parse);
 
   const contributors = await fetch(repository.contributors_url, {
     next: { revalidate: 1800 },

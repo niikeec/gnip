@@ -1,3 +1,7 @@
+import { withSentryConfig } from "@sentry/nextjs";
+
+await import("./env.mjs");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -5,4 +9,10 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withSentryConfig(nextConfig, {
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  hideSourceMaps: true,
+  disableLogger: true,
+  tunnelRoute: "/monitoring",
+});
