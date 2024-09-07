@@ -1,4 +1,4 @@
-![hero](hero.png)
+![hero](./assets/hero.png)
 
 <h1 align="center">gnip.it</h1>
 <p align="center">Create snippets for your GitHub repositories.</p>
