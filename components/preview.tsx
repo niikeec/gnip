@@ -25,7 +25,7 @@ export function Preview({ children }: PropsWithChildren) {
 
         <div
           className={cn(
-            "relative rounded-xl border border-primary/25 bg-background/75 p-4 text-sm transition-all duration-300",
+            "relative min-w-[500px] rounded-xl border border-primary/25 bg-background/75 p-4 text-sm transition-all duration-300",
             !isSafari && background && "shadow-2xl",
           )}
         >
