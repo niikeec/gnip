@@ -2,12 +2,12 @@
 
 import { PropsWithChildren } from "react";
 
-import { usePreviewStore } from "~/lib/store/preview.store";
+import { useControls } from "~/lib/params/controls.params";
 import { useIsSafari } from "~/lib/use-is-safari";
 import { cn, themeBackground } from "~/lib/utils";
 
 export function Preview({ children }: PropsWithChildren) {
-  const { padding, darkMode, background, theme } = usePreviewStore();
+  const [{ theme, padding, darkMode, background }] = useControls();
 
   const isSafari = useIsSafari();
 
