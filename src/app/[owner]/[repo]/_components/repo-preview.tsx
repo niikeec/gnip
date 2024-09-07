@@ -53,8 +53,12 @@ export async function RepoPreview({
         {repository.description && <p>{repository.description}</p>}
 
         <div className="flex items-center gap-2.5 text-xs">
-          <RepoPreviewLanguage language={repository.language} />
-          <span className="text-muted-foreground/25">•</span>
+          {repository.language && (
+            <>
+              <RepoPreviewLanguage language={repository.language} />
+              <span className="text-muted-foreground/25">•</span>
+            </>
+          )}
           <RepoPreviewStars count={repository.stargazers_count} />
           <span className="text-muted-foreground/30">•</span>
           <RepoPreviewContributors contributors={contributors} />

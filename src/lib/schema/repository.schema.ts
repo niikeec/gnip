@@ -11,7 +11,7 @@ export const repositorySchema = z.object({
   description: z.string().nullable(),
   contributors_url: z.string(),
   stargazers_count: z.number(),
-  language: z.string(),
+  language: z.string().nullable(),
 });
 
 export type Repository = z.infer<typeof repositorySchema>;
