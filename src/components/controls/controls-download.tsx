@@ -1,13 +1,14 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import { ChevronDown, Download } from "lucide-react";
 import { toast } from "sonner";
+import { z } from "zod";
 
 import { EXPORT_SIZES } from "~/lib/const/export-size.const";
 import { download } from "~/lib/download";
 import { toBlob, toPng, toSvg } from "~/lib/image";
 import { useControls } from "~/lib/params/controls.params";
+import { useZodParams } from "~/lib/use-zod-params";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -23,8 +24,10 @@ import {
 } from "../ui/dropdown-menu";
 import { Tooltip } from "../ui/tooltip";
 
+const paramsSchema = z.object({ repo: z.string() });
+
 export function ControlsDownload() {
-  const params = useParams();
+  const params = useZodParams(paramsSchema.shape);
 
   const [{ size }, setControls] = useControls();
 

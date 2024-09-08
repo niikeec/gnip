@@ -6,6 +6,7 @@ import { ControlsDarkMode } from "./controls-dark-mode";
 import { ControlsDownload } from "./controls-download";
 import { ControlsPadding } from "./controls-padding";
 import { ControlsTheme } from "./controls-theme";
+import { ControlsUrl } from "./controls-url";
 
 export function Controls() {
   return (
@@ -18,7 +19,10 @@ export function Controls() {
       <Separator orientation="vertical" className="mx-2 h-5" />
       <ControlsPadding />
       <Separator orientation="vertical" className="mx-2 h-5" />
-      <ControlsDownload />
+      <div className="flex items-center gap-1">
+        <ControlsUrl />
+        <ControlsDownload />
+      </div>
     </div>
   );
 }

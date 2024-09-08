@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
 
-import { Header } from "~/components/header";
 import { Toaster } from "~/components/ui/sonner";
 import { TooltipProvider } from "~/components/ui/tooltip";
 
@@ -33,7 +32,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Header />
           <Toaster />
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
