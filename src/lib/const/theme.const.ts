@@ -51,4 +51,4 @@ export type Theme = keyof typeof THEMES;
 
 export const THEME_OPTIONS = Object.values(THEMES);
 
-export const THEME_KEYS = Object.keys(THEMES) as Theme[];
+export const THEME_KEYS = Object.keys(THEMES) as [Theme, ...Theme[]];
