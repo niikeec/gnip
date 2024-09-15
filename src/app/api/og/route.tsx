@@ -20,6 +20,7 @@ const searchParamsSchema = z.object({
     .enum(["true", "false"])
     .transform((v) => v === "true")
     .catch(true),
+  scale: z.number({ coerce: true }).min(0.5).max(1).catch(0.75),
 });
 
 const COLORS = {
@@ -54,9 +55,10 @@ export async function GET(req: NextRequest) {
       repo: searchParams.get("repo"),
       theme: searchParams.get("theme"),
       darkMode: searchParams.get("darkMode"),
+      scale: searchParams.get("scale"),
     });
 
-    const { owner, repo, theme, darkMode } = data;
+    const { owner, repo, theme, darkMode, scale } = data;
 
     const colors = darkMode ? COLORS.dark : COLORS.light;
 
@@ -95,7 +97,7 @@ export async function GET(req: NextRequest) {
           <div
             tw="flex flex-col rounded-3xl w-full border-2 shadow-2xl text-[28px] font-medium p-8"
             style={{
-              transform: "scale(0.75)",
+              transform: `scale(${scale})`,
               background: colors.background,
               color: colors.foreground,
               borderColor: colors["card-border"],
