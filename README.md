@@ -1,4 +1,4 @@
-![hero](./assets/hero.png)
+![hero](https://www.gnip.it/api/og?owner=niikeec&repo=gnip)
 
 <h1 align="center">gnip.it</h1>
 <p align="center">Create snippets for your GitHub repositories.</p>
