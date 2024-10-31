@@ -5,14 +5,16 @@ import { Tooltip } from "../ui/tooltip";
 import { ControlsToggle } from "./controls-toggle";
 
 export function ControlsBackground() {
-  const [{ background }, setControls] = useControls();
+  const [{ showBackground }, setControls] = useControls();
 
   return (
     <Tooltip content="Toggle Background">
       <div className="size-6">
         <ControlsToggle
-          pressed={!background}
-          onPressedChange={(checked) => setControls({ background: !checked })}
+          pressed={!showBackground}
+          onPressedChange={(checked) =>
+            setControls({ showBackground: !checked })
+          }
         >
           <svg
             width="15"

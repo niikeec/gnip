@@ -29,14 +29,14 @@ const paramsSchema = z.object({ repo: z.string() });
 export function ControlsDownload() {
   const params = useZodParams(paramsSchema.shape);
 
-  const [{ size }, setControls] = useControls();
+  const [{ exportSize }, setControls] = useControls();
 
   function savePng() {
     const node = document.getElementById("preview");
     if (!node) return;
 
     toast.promise(
-      toPng(node, { pixelRatio: size }).then((dataUrl) =>
+      toPng(node, { pixelRatio: exportSize }).then((dataUrl) =>
         download(dataUrl, `${params.repo}.png`),
       ),
       {
@@ -56,7 +56,7 @@ export function ControlsDownload() {
         "image/png": new Promise((resolve) => {
           toast.promise(
             toBlob(node, {
-              pixelRatio: size,
+              pixelRatio: exportSize,
             }).then((blob) => {
               if (!blob) throw new Error("Missing blob");
               resolve(blob);
@@ -121,12 +121,12 @@ export function ControlsDownload() {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>Size</DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
-              <DropdownMenuRadioGroup value={size.toString()}>
+              <DropdownMenuRadioGroup value={exportSize.toString()}>
                 {EXPORT_SIZES.map((size) => (
                   <DropdownMenuRadioItem
                     key={size}
                     value={size.toString()}
-                    onClick={() => setControls({ size })}
+                    onClick={() => setControls({ exportSize: size })}
                   >
                     {size}x
                   </DropdownMenuRadioItem>
